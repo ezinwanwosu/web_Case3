@@ -363,7 +363,7 @@ main h1{
   }
   
   /* Medium screens (half laptop) */
-  @media (min-width: 601px) and (max-width: 1424px) {
+  @media (min-width: 601px) and (max-width: 1524px) {
     header {
         justify-content: space-between;  /* Change from flex-end to space-between */
         padding: 1rem 2rem;
