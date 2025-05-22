@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>AbstractGrillz</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="spline-viewer">
+        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.96/build/spline-viewer.js"></script>
+        <spline-viewer url="https://prod.spline.design/VkUCJ6BuOLeUQ6Ee/scene.splinecode"></spline-viewer>  
+    </div>
+    <header>
+        <div class="logo"> Abstract Grillz</div>
+        <button class="product-btn" onclick="location.href='#services'">PRODUCTS</button>
+        <button class="cart-btn"><i class="fas fa-shopping-cart"></i></button>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        <div class="side-menu" id="sideMenu">
+            <div class="close-btn" onclick="toggleMenu()">&times;</div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Grillz</a></li>
+                <li><a href="#">Tooth caps</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#contact-footer" onclick="toggleMenu()">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+ 
+    <main>
+        <div class="title-section fade-in">
+            <h1 id="title"></h1>
+            <div class="location">
+                <p> BASED IN BIRMINGHAM <br> AVAILABLE WORLDWIDE</p>
+            </div>
+        </div>
+        <div class="bio-section fade-in">
+            <p class="bio">
+                ABSTRACT GRILLZ IN BIRMINGHAM CREATES <span style="color: rgb(205, 174, 249); font-family: 'Zefani'; text-transform: uppercase;">CUSTOM GRILLZ</span><br> AND SMILE ENHANCEMENTS, BLENDING ADVANCED<br> DENTAL TECH WITH <span style="color: rgb(205, 174, 249); font-family: 'Zefani'; text-transform: uppercase;">ARTISTRY</span>.<br> EACH <span style="color: rgb(205, 174, 249); font-family: 'Zefani'; text-transform: uppercase;">HANDCRAFTED</span> PIECE ENSURES STYLE,<br> COMFORT, AND DURABILITY.
+            </p></div>
+        <section id="services" class="services-section fade-in">
+            <div class="service-card">
+              <img src="images/grillz.avif" alt="Grillz">
+              <h3>Custom Grillz</h3>
+              <p>Handcrafted pieces that reflect your unique style using top-quality materials.</p>
+            </div>
+            <div class="service-card">
+              <img src="images/art.jpeg" alt="Dental Art">
+              <h3> Tooth caps</h3>
+              <p>Bespoke tooth caps are custom-made dental coverings designed to perfectly fit your teeth, both functional and aesthetics with a natural look.</p>
+            </div>
+          </section>
+          
+    </main>
+    <footer id="contact-footer" class="footer fade-in">
+        <div class="footer-links fade-in">
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="mailto:abstractgrillz@business.com">Contact Us</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Phone: 07 XXX XXXX XX</a>
+        </div>
+
+    </footer>
+   
+    <script>
+    
+ 
+        let titleIndex = 0;
+        const title = [
+            "GRILLZ SPECIALIST",
+            "TOOTH<br>CAPS",
+            "CUSTOM<br>FLEX",
+            "YOUR<br>STYLE"
+
+        ];
+        function updateTitle(){
+            document.getElementById("title").innerHTML = title[titleIndex];
+            titleIndex = (titleIndex + 1)% title.length;
+        }
+     
+        updateTitle();
+        setInterval(updateTitle, 3000);
+        
+      
+        function toggleMenu() {
+            document.getElementById("sideMenu").classList.toggle("open");
+        }
+        const faders = document.querySelectorAll('.fade-in');
+
+        const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            } else {
+            entry.target.classList.remove('visible'); // this enables fade-out again
+            }
+        });
+        }, {
+        threshold: 0.1
+        });
+
+        faders.forEach(fader => {
+        observer.observe(fader);
+        });
+    </script>
+
+</body>
+</html>
