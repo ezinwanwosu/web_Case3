@@ -435,7 +435,7 @@ main h1{
       left: 50%;
       transform: translateX(-50%);
       padding-right: 0;
-      font-size: 3.5rem;
+      font-size: 3rem;
     }
   
     .cart-btn {
@@ -482,4 +482,9 @@ main h1{
         line-height: 1.2;
         padding: 0 0.1rem;
     }
+}
+@media (min-width: 601px){
+  .logo{
+    font-size: 6rem;
+  }
 }
